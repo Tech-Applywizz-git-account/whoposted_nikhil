@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* WhoPosted Branding - Premium White & Brand Blue */
+    --background: 0 0% 100%; /* Pure white #ffffff */
+    --foreground: 221 39% 11%; /* Dark slate #111827 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 221 39% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 221 39% 11%;
+
+    --primary: 239 84% 67%; /* WhoPosted Indigo #6366f1 (Deprecating for brand-500) */
+    --primary-foreground: 0 0% 100%;
+
+    --brand-blue: 249 92% 61%; /* #533AFD */
+    --brand-indigo: 239 84% 67%;
+
+    --secondary: 249 92% 98%; 
+    --secondary-foreground: 249 92% 61%;
+
+    --muted: 210 40% 98%;
+    --muted-foreground: 215.4 16.3% 46.9%; /* Slate #64748d */
+
+    --border: 249 92% 96%;
+    --input: 249 92% 96%;
+    --ring: 249 92% 61%;
+
+    --radius: 0.75rem;
+
+    /* Multi-layered shadows */
+    --shadow-premium: 0 2px 4px rgba(83, 58, 253, 0.04), 0 4px 12px rgba(83, 58, 253, 0.03);
+    --shadow-elevated: 0 10px 40px -10px rgba(83, 58, 253, 0.12), 0 15px 25px -10px rgba(83, 58, 253, 0.08);
+  }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+html {
+  font-size: 13.5px;
+  scroll-behavior: smooth;
+  background-color: #ffffff;
+}
+
+body {
+  @apply bg-white text-foreground antialiased;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.015em;
+}
+
+::selection {
+  background: rgba(83, 58, 253, 0.1);
+  color: #533AFD;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-slate-900;
+  }
+}
+
+@layer components {
+  .glass-premium {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  }
+
+  .premium-shadow {
+    @apply shadow-[0_8px_30px_rgb(0,0,0,0.04)];
+    border: 1px solid rgba(83, 58, 253, 0.05);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-brand-600 to-brand-500;
+  }
+
+  /* WhoPosted Card */
+  .card-premium {
+    @apply bg-white border border-brand-500/5 rounded-2xl shadow-premium transition-all duration-300 hover:shadow-elevated hover:-translate-y-1;
+  }
+
+  /* Custom Pill Buttons */
+  .btn-pill {
+    @apply px-5 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border active:scale-95;
+  }
+
+  .btn-pill-active {
+    @apply bg-brand-500 text-white border-brand-500 shadow-lg shadow-brand-500/20;
+  }
+
+  .btn-pill-inactive {
+    @apply bg-white text-slate-500 border-slate-200 hover:border-brand-500/30 hover:text-brand-500 hover:bg-brand-50/50;
+  }
+}
+
+@layer utilities {
+  .text-brand-primary { color: #533AFD; }
+  .bg-brand-primary { background-color: #533AFD; }
+}
