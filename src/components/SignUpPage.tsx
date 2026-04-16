@@ -66,7 +66,7 @@ function SignUp({ onBack }: SignUpProps) {
             src="/whoposted-logo.png"
             alt="WhoPosted Jobs"
             className="h-28 w-auto mb-6 object-contain filter drop-shadow-sm cursor-pointer"
-            onClick={() => window.location.href = "http://localhost:5173/"}
+            onClick={() => window.location.href = "https://who-posted.vercel.app/"}
           />
           <h1 className="text-[24px] font-bold text-[#061b31] tracking-tight mb-1.5">
             Create your account
