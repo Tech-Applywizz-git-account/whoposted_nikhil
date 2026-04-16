@@ -21,8 +21,8 @@ interface Job {
 
 interface PaginatedSponsorshipTableProps {
   jobs: Job[];
-  totalCount: number;
-  onPageChange: (newPage: number) => void;
+  totalCount?: number;           // optional: defaults to jobs.length for local pagination
+  onPageChange?: (newPage: number) => void; // optional: no-op for local pagination
   isLoading?: boolean;
   rowsPerPage?: number;
   // Controlled search props (lifted to Overview for global server-side search)
@@ -41,8 +41,10 @@ export const PaginatedSponsorshipTable = ({
 }: PaginatedSponsorshipTableProps) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Server already filters — jobs array IS the filtered result
-  const logicalTotal = totalCount;
+  // Server already filters — jobs array IS the filtered result.
+  // If totalCount not provided, fall back to jobs.length (local pagination).
+  const logicalTotal = totalCount ?? jobs.length;
+
   const totalPages = Math.ceil(logicalTotal / rowsPerPage);
   const startIndex = (currentPage - 1) * rowsPerPage;
   const endIndex = startIndex + rowsPerPage;
@@ -65,7 +67,7 @@ export const PaginatedSponsorshipTable = ({
       // Trigger parent to load next chunk if this page's data isn't loaded yet
       const requiredIndex = (newPage - 1) * rowsPerPage;
       if (!jobs[requiredIndex]) {
-        onPageChange(newPage);
+        onPageChange?.(newPage);
       }
     }
   };
