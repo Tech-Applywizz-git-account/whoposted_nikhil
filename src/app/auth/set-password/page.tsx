@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Lock, CheckCircle, Eye, EyeOff, Loader2, ShieldCheck } from "lucide-react";
+import { Lock, CheckCircle, Eye, EyeOff, Loader2, ShieldCheck, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function SetPasswordPage() {
