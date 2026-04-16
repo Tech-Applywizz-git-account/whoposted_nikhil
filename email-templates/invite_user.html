@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; padding: 20px; }
+    .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .header { background: #0f172a; padding: 20px; text-align: center; }
+    .header img { height: 40px; }
+    .content { padding: 30px; }
+    .button { display: inline-block; background-color: #2563eb; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 600; margin-top: 20px; }
+    .footer { padding: 20px; text-align: center; font-size: 12px; color: #666; background: #f1f5f9; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+       <img src="https://whoposted-jobs.vercel.app/whoposted-logo.png" alt="WhoPosted Jobs" />
+    </div>
+    <div class="content">
+      <h2>Welcome to WhoPosted Jobs</h2>
+      <p>Hello {{ .Email }},</p>
+      <p>You have been invited to join WhoPosted Jobs. We're excited to have you on board.</p>
+      <p>Please click the button below to accept your invitation and set your password:</p>
+      <div style="text-align: center;">
+        <a href="{{ .ConfirmationURL }}" class="button">Accept Invitation</a>
+      </div>
+      <p style="margin-top: 30px; font-size: 14px; color: #666;">If the button above doesn't work, copy and paste this link into your browser:<br>
+      <a href="{{ .ConfirmationURL }}" style="color: #2563eb;">{{ .ConfirmationURL }}</a></p>
+    </div>
+    <div class="footer">
+      &copy; 2026 WhoPosted Jobs. All rights reserved.
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿[dotenv@17.2.3] injecting env (5) from .env -- tip: Γ£à audit secrets and track compliance: https://dotenvx.com/ops
+daily_linkedin_jobs_report exists, count: null
+node.exe : Error with 
+daily_kpi_metrics view: {
+At line:1 char:1
++ & "D:\program 
+files\nodejs/node.exe" "D:\np
+m-global/node_modules/npm/ 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: (Error w  
+  ith daily_kpi_metrics vi   
+ ew: {:String) [], Remote    
+Exception
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+  code: 'PGRST205',
+  details: null,
+  hint: "Perhaps you meant 
+the table 'public.daily_linke
+din_jobs_report'",
+  message: "Could not find 
+the table 
+'public.daily_kpi_metrics' 
+in the schema cache"
+}
